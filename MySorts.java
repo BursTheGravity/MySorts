@@ -8,6 +8,52 @@
 import java.util.ArrayList;
 
 public class MySorts {
+	
+	//~~~~~~~~~~~~~~~~~~~~~~~ArrayUtils~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	public static Object[] populateInt (Object[] s, int lower, int upper) {
+		for (int x = 0 ; x < s.length ; x += 1) {
+			s[x] = ((int)(Math.random() * (upper - lower))) + lower;
+		}
+		return s;
+	}
+	
+	//populates with alphabet
+	public static Object[] populateStr (Object[] s) {
+		String alphabet = "abcdefghijklmnopqrstuvwxyz";
+		for (int x = 0 ; x < s.length ; x += 1) {
+			int pos = (int)(Math.random() * (25));
+			s[x] = alphabet.substring(pos,pos+1);
+		}
+		return s;
+	}
+	
+	public static String stringify (Object[] a) {
+		String ans ="";
+		for (Object x : a) {
+			ans += x + " ";
+		}
+		return ans;
+	}
+	
+	public static int linSearch (Object[] a, Object target) {
+		for (int x = 0; x < a.length ; x += 1) {
+			if (a[x] == target) {
+				return x;
+			}
+		}
+		return -1;
+	}
+	
+	public static int frequency (Object[] a, Object target) {
+		int freq = 0;
+		for (int x = 0; x < a.length ; x += 1) {
+			if (a[x] == target) {
+				freq += 1;
+			}
+		}
+		return freq;
+	}
+	
   //~~~~~~~~~~~~~~~~~~~ HELPER METHODS ~~~~~~~~~~~~~~~~~~~
     //precond: lo < hi && size > 0
     //postcond: returns an ArrayList of random integers
